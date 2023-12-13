@@ -1,0 +1,216 @@
+---
+input_text: 'We compared interactions of nucleotide-free classical Rho proteins (RAC1G15A,
+  RHOGG15A, CDC42G15A and RHOAG17A) and their WT forms (Fig. 2a). In all but one case,
+  the nucleotide-free form interacted with more GEFs than the WT protein. Some GEFs
+  displayed specificity for one of the baits, which recapitulates previous reports
+  as follows. RHOAG17A interacted with the RHOAspecific GEFs ARHGEF1 (ref. 25), ARHGEF2
+  (ref. 26), ARHGEF5 (ref. 27), ARHGEF17 (ref. 28), NGEF29, ECT2 (ref. 30) and AKAP13
+  (ref.31) (Fig. 2a). RAC1G15A bound the RAC1-specific GEFs SWAP70 (ref. 32), DOCK1
+  (refs. 33,34), DOCK4 (ref. 35), DOCK5 (ref. 36) and DOCK6 (ref. 37). Finally, CDC42G15A
+  interacted with the CDC42- specific GEFs DNMBP38, PLEKHG1 (ref. 39), DOCK8 (ref.
+  40) and DOCK10 (ref. 41) (Fig. 2a). BioID confirmed the reported broad selectivity
+  of some GEFs as follows: VAV2 (ref. 42) for RHOA, RAC1 and CDC42; TRIO43 for RHOA,
+  RAC1 and RHOG; ARHGEF11 (ref.44) for RHOA, RAC1 and CDC42; DOCK7 (ref. 45) for RAC1
+  and CDC42; ARHGEF7 (ref. 46) for RAC1 and CDC42; FARP1 (ref. 47) for RHOA, RAC1
+  and CDC42; and BCR48 for RHOA and RAC1 (Fig. 2a). We detected an interaction between
+  CDC42G15A and ARHGEF26, which is believed to be a RHOG-specific GEF. Notably, the
+  initial studies of ARHGEF26 reported activity towards CDC42 (ref. 49). While we
+  found that RHOAG17A interacted with its established GEF ARHGEF12 (ref. 50), an interaction
+  with CDC42G15A was also detected (Fig. 2a), which suggests that it may have broader
+  activity than reported. PLEKHG3 is validated as a RAC1 and CDC42 GEF51, and our
+  BioID data confirmed this specificity, but also revealed binding to RHOA. We experimentally
+  confirmed that PLEKHG3 interacts with nucleotide-free RHOA, which suggests that
+  it is also a RHOA GEF (Fig. 2b). Hence, nucleotide-free Rho baits are effective
+  for uncovering the GEFs that regulate them.'
+raw_completion_output: |-
+  genes: RAC1;RHOG;CDC42;RHOA;ARHGEF1;ARHGEF2;ARHGEF5;ARHGEF17;NGEF;ECT2;AKAP13;SWAP70;DOCK1;DOCK4;DOCK5;DOCK6;DNMBP;PLEKHG1;DOCK8;DOCK10;VAV2;TRIO;ARHGEF11;DOCK7;ARHGEF7;FARP1;BCR;ARHGEF26;ARHGEF12;PLEKHG3
+  gene_variances: RAC1_G15A;RHOG_G15A;CDC42_G15A;RHOA_G17A
+  gene_gene_interactions: RHOA-ARHGEF1;RHOA-ARHGEF2;RHOA-ARHGEF5;RHOA-ARHGEF17;RHOA-NGEF;RHOA-ECT2;RHOA-AKAP13;RAC1-SWAP70;RAC1-DOCK1;RAC1-DOCK4;RAC1-DOCK5;RAC1-DOCK6;CDC42-DNMBP;CDC42-PLEKHG1;CDC42-DOCK8;CDC42-DOCK10;RHOA-VAV2;RHOA-TRIO;RHOA-ARHGEF11;RHOA-FARP1;RHOA-BCR;RHOA-PLEKHG3;RAC1-VAV2;RAC1-TRIO;RAC1-ARHGEF11;RAC1-DOCK7;RAC1-ARHGEF7;RAC1-FARP1;RAC1-BCR;RAC1-PLEKHG3;CDC42-VAV2;CDC42-TRIO;CDC42-ARHGEF11;CDC42-DOCK7;CDC42-ARHGEF7;CDC42-FARP1;CDC42-ARHGEF26;CDC42-ARHGEF12;CDC42-PLEKHG3
+prompt: |+
+  Format:
+  gene1: <the value for gene1>
+  gene2: <the value for gene2>
+
+
+  Text:
+  CDC42-PLEKHG3
+
+  ===
+
+extracted_object:
+  genes:
+    - HGNC:9801
+    - HGNC:672
+    - HGNC:1736
+    - HGNC:667
+    - HGNC:681
+    - HGNC:682
+    - HGNC:13209
+    - HGNC:21726
+    - HGNC:7807
+    - HGNC:3155
+    - HGNC:371
+    - HGNC:17070
+    - HGNC:2987
+    - HGNC:19192
+    - HGNC:23476
+    - HGNC:19189
+    - HGNC:30373
+    - HGNC:20884
+    - HGNC:19191
+    - HGNC:23479
+    - HGNC:12658
+    - HGNC:12303
+    - HGNC:14580
+    - HGNC:19190
+    - HGNC:15607
+    - HGNC:3591
+    - HGNC:1014
+    - HGNC:24490
+    - HGNC:14193
+    - HGNC:20364
+  gene_variances:
+    - RAC1_G15A
+    - RHOG_G15A
+    - CDC42_G15A
+    - RHOA_G17A
+  gene_gene_interactions:
+    - gene1: RHOA
+      gene2: ARHGEF1
+    - gene1: RHOA
+      gene2: ARHGEF2
+    - gene1: RHOA
+      gene2: ARHGEF5
+    - gene1: RHOA
+      gene2: ARHGEF17
+    - gene1: RHOA
+      gene2: NGEF
+    - gene1: RHOA
+      gene2: ECT2
+    - gene1: RHOA
+      gene2: AKAP13
+    - gene1: RAC1
+      gene2: SWAP70
+    - gene1: RAC1
+      gene2: DOCK1
+    - gene1: RAC1
+      gene2: DOCK4
+    - gene1: RAC1
+      gene2: DOCK5
+    - gene1: RAC1
+      gene2: DOCK6
+    - gene1: CDC42
+      gene2: DNMBP
+    - gene1: CDC42
+      gene2: PLEKHG1
+    - gene1: CDC42
+      gene2: DOCK8
+    - gene1: CDC42
+      gene2: DOCK10
+    - gene1: RHOA
+      gene2: VAV2
+    - gene1: RHOA
+      gene2: TRIO
+    - gene1: RHOA
+      gene2: ARHGEF11
+    - gene1: RHOA
+      gene2: FARP1
+    - gene1: RHOA
+      gene2: BCR
+    - gene1: RHOA
+      gene2: PLEKHG3
+    - gene1: RAC1
+      gene2: VAV2
+    - gene1: RAC1
+      gene2: TRIO
+    - gene1: RAC1
+      gene2: ARHGEF11
+    - gene1: RAC1
+      gene2: DOCK7
+    - gene1: RAC1
+      gene2: ARHGEF7
+    - gene1: RAC1
+      gene2: FARP1
+    - gene1: RAC1
+      gene2: BCR
+    - gene1: RAC1
+      gene2: PLEKHG3
+    - gene1: CDC42
+      gene2: VAV2
+    - gene1: CDC42
+      gene2: TRIO
+    - gene1: CDC42
+      gene2: ARHGEF11
+    - gene1: CDC42
+      gene2: DOCK7
+    - gene1: CDC42
+      gene2: ARHGEF7
+    - gene1: CDC42
+      gene2: FARP1
+    - gene1: CDC42
+      gene2: ARHGEF26
+    - gene1: CDC42
+      gene2: ARHGEF12
+    - gene1: CDC42
+      gene2: PLEKHG3
+named_entities:
+  - id: HGNC:9801
+    label: RAC1
+  - id: HGNC:672
+    label: RHOG
+  - id: HGNC:1736
+    label: CDC42
+  - id: HGNC:667
+    label: RHOA
+  - id: HGNC:681
+    label: ARHGEF1
+  - id: HGNC:682
+    label: ARHGEF2
+  - id: HGNC:13209
+    label: ARHGEF5
+  - id: HGNC:21726
+    label: ARHGEF17
+  - id: HGNC:7807
+    label: NGEF
+  - id: HGNC:3155
+    label: ECT2
+  - id: HGNC:371
+    label: AKAP13
+  - id: HGNC:17070
+    label: SWAP70
+  - id: HGNC:2987
+    label: DOCK1
+  - id: HGNC:19192
+    label: DOCK4
+  - id: HGNC:23476
+    label: DOCK5
+  - id: HGNC:19189
+    label: DOCK6
+  - id: HGNC:30373
+    label: DNMBP
+  - id: HGNC:20884
+    label: PLEKHG1
+  - id: HGNC:19191
+    label: DOCK8
+  - id: HGNC:23479
+    label: DOCK10
+  - id: HGNC:12658
+    label: VAV2
+  - id: HGNC:12303
+    label: TRIO
+  - id: HGNC:14580
+    label: ARHGEF11
+  - id: HGNC:19190
+    label: DOCK7
+  - id: HGNC:15607
+    label: ARHGEF7
+  - id: HGNC:3591
+    label: FARP1
+  - id: HGNC:1014
+    label: BCR
+  - id: HGNC:24490
+    label: ARHGEF26
+  - id: HGNC:14193
+    label: ARHGEF12
+  - id: HGNC:20364
+    label: PLEKHG3

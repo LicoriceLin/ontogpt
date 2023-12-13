@@ -52,18 +52,9 @@ class NullDataOptions(str, Enum):
     
 
 class GoCamAnnotationsPlus(ConfiguredBaseModel):
-    
     genes: Optional[List[str]] = Field(default_factory=list, description="""semicolon-separated list of genes""")
     gene_variances: Optional[List[str]] = Field(default_factory=list, description="""semicolon-separated list of underscore separated gene and muation. e.g.KRAS_K12D""")
-    organisms: Optional[List[str]] = Field(default_factory=list, description="""semicolon-separated list of organism taxons""")
-    gene_organisms: Optional[List[GeneOrganismRelationship]] = Field(default_factory=list)
-    activities: Optional[List[str]] = Field(default_factory=list, description="""semicolon-separated list of molecular activities""")
-    gene_functions: Optional[List[GeneMolecularActivityRelationship]] = Field(default_factory=list, description="""semicolon-separated list of gene to molecular activity relationships""")
-    cellular_processes: Optional[List[str]] = Field(default_factory=list, description="""semicolon-separated list of cellular processes""")
-    pathways: Optional[List[str]] = Field(default_factory=list, description="""semicolon-separated list of pathways""")
-    gene_gene_interactions: Optional[List[GeneGeneInteraction]] = Field(default_factory=list, description="""semicolon-separated list of gene to gene interactions""")
-    gene_localizations: Optional[List[GeneSubcellularLocalizationRelationship]] = Field(default_factory=list, description="""semicolon-separated list of genes plus their location in the cell; for example, \"gene1 / cytoplasm; gene2 / mitochondrion\"""")
-    
+    gene_gene_interactions: Optional[List[GeneGeneInteraction]] = Field(default_factory=list, description="""semicolon-separated list of gene to gene interactions""")    
 
 class ExtractionResult(ConfiguredBaseModel):
     """
