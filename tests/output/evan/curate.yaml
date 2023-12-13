@@ -1,0 +1,297 @@
+---
+input_text: |
+  Protein: ARHGEF1, 
+  	Description: RHOA-specific GEF
+  Protein: ARHGEF2,
+  	Description: RHOA-specific GEF
+  Protein: ARHGEF5, 
+  	Description: RHOA-specific GEF
+  Protein: ARHGEF17,
+  	Description: RHOA-specific GEF
+  Protein: NGEF29, 
+  	Description: RHOA-specific GEF
+  Protein: ECT2, 
+  	Description: RHOA-specific GEF
+  Protein: AKAP13, 
+  	Description: RHOA-specific GEF
+  Protein: SWAP70, 
+  	Description RAC1-specific GEF
+  Protein: DOCK1, 
+  	Description RAC1-specific GEF
+  Protein: DOCK4, 
+  	Description RAC1-specific GEF
+  Protein: DOCK5, 
+  	Description RAC1-specific GEF
+  Protein: DOCK6, 
+  	Description RAC1-specific GEF
+  Protein: CDC42, 
+  	Description: classical Rho proteins
+  Variant: CDC42G15A, 
+  	Protein: CDC42
+  	Mutation: G15A
+  Protein: DNMBP38, 
+  	Description: CDC42- specific GEFs
+  Protein: PLEKHG1, 
+  	Description: CDC42- specific GEFs
+  Protein: DOCK8, 
+  	Description: CDC42- specific GEFs
+  Protein: DOCK10, 
+  	Description: CDC42- specific GEFs
+  Protein: VAV2, 
+  	Description: broad selectivity GEF
+  Protein: RHOA
+  	Description: classical Rho proteins
+  Variant: RHOAG17A, 
+  	Protein: RHOA
+  	Mutation: G17A
+  Protein: RAC1
+  	Description: classical Rho proteins
+  Variant: RAC1G15A
+  	Protein: RAC1
+  	Mutation: G15A
+  Protein: TRIO43 
+  Protein: RHOG
+  	Description: classical Rho proteins
+  Variant: RHOGG15A
+  	Protein: RHOG
+  	Mutation: G15A
+  Protein: ARHGEF11 
+  	Description: broad selectivity GEF
+  Protein: DOCK7, 
+  Description: broad selectivity GEF
+  Protein: ARHGEF7, 
+  	Description: broad selectivity GEF
+  Protein: FARP1, 
+  	Description: broad selectivity GEF
+  Protein: BCR48, 
+  	Description: broad selectivity GEF
+  Protein: ARHGEF26, 
+  	Description: RHOG-specific GEF
+  Variant: RHOGG15A
+  	Protein: RHOG
+  	Mutation: G15A
+  Protein: ARHGEF12, 
+  Protein: PLEKHG3, 
+  	Description: broad selectivity GEF
+  RHOAG17A interacts with ARHGEF1  
+  RHOAG17A interacts with ARHGEF2
+  RHOAG17A interacts with ARHGEF5 
+  RHOAG17A interacts with ARHGEF17 
+  RHOAG17A interacts with NGEF29
+  RHOAG17A interacts with ECT2
+  RHOAG17A interacts with AKAP13
+  RAC1G15A interacts with SWAP70
+  RAC1G15A interacts with DOCK1
+  RAC1G15A interacts with DOCK4 
+  RAC1G15A interacts with DOCK5
+  RAC1G15A interacts with DOCK6
+  VAV2 interacts with RHOA
+  VAV2 interacts with RAC1
+  VAV2 interacts with CDC42
+  TRIO43 interacts with RHOA
+  TRIO43 interacts with RAC1
+  TRIO43 interacts with RHOG
+  ARHGEF11 interacts with RHOA
+  ARHGEF11 interacts with RAC1
+  ARHGEF11 interacts with CDC42
+  DOCK7 interacts with RAC1
+  DOCK7 interacts with CDC42
+  ARHGEF7 interacts with RAC1
+  ARHGEF7 interacts with CDC42
+  FARP1 interacts with RHOA
+  FARP1 interacts with RAC1
+  FARP1 interacts with CDC42
+  BCR48 interacts with RHOA
+  BCR48 interacts with RAC1
+  CDC42G15A interacts with ARHGEF26
+  RHOAG17A interacts with ARHGEF12
+  CDC42G15A interacts with ARHGEF12
+  PLEKHG3 interacts with RAC1 
+  PLEKHG3 interacts with CDC42
+  PLEKHG3 interacts with RHOA
+raw_completion_output: |-
+  genes: ARHGEF1;ARHGEF2;ARHGEF5;ARHGEF17;NGEF29;ECT2;AKAP13;SWAP70;DOCK1;DOCK4;DOCK5;DOCK6;CDC42;DNMBP38;PLEKHG1;DOCK8;DOCK10;VAV2;RHOA;RAC1;TRIO43;RHOG;ARHGEF11;DOCK7;ARHGEF7;FARP1;BCR48;ARHGEF26;ARHGEF12;PLEKHG3
+  gene_variances: CDC42_G15A;RHOA_G17A;RAC1_G15A;RHOG_G15A
+  gene_gene_interactions: RHOA_G17A-ARHGEF1;RHOA_G17A-ARHGEF2;RHOA_G17A-ARHGEF5;RHOA_G17A-ARHGEF17;RHOA_G17A-NGEF29;RHOA_G17A-ECT2;RHOA_G17A-AKAP13;RAC1_G15A-SWAP70;RAC1_G15A-DOCK1;RAC1_G15A-DOCK4;RAC1_G15A-DOCK5;RAC1_G15A-DOCK6;VAV2-RHOA;VAV2-RAC1;VAV2-CDC42;TRIO43-RHOA;TRIO43-RAC1;TRIO43-RHOG;ARHGEF11-RHOA;ARHGEF11-RAC1;ARHGEF11-CDC42;DOCK7-RAC1;DOCK7-CDC42;ARHGEF7-RAC1;ARHGEF7-CDC42;FARP1-RHOA;FARP1-RAC1;FARP1-CDC42;BCR48-RHOA;BCR48-RAC1;CDC42_G15A-ARHGEF26;RHOA_G17A-ARHGEF12;CDC42_G15A-ARHGEF12;PLEKHG3-RAC1;PLEKHG3-CDC42;PLEKHG3-RHOA
+prompt: |+
+  Format:
+  gene1: <the value for gene1>
+  gene2: <the value for gene2>
+
+
+  Text:
+  PLEKHG3-RHOA
+
+  ===
+
+extracted_object:
+  genes:
+    - HGNC:681
+    - HGNC:682
+    - HGNC:13209
+    - HGNC:21726
+    - AUTO:NGEF29
+    - HGNC:3155
+    - HGNC:371
+    - HGNC:17070
+    - HGNC:2987
+    - HGNC:19192
+    - HGNC:23476
+    - HGNC:19189
+    - HGNC:1736
+    - AUTO:DNMBP38
+    - HGNC:20884
+    - HGNC:19191
+    - HGNC:23479
+    - HGNC:12658
+    - HGNC:667
+    - HGNC:9801
+    - AUTO:TRIO43
+    - HGNC:672
+    - HGNC:14580
+    - HGNC:19190
+    - HGNC:15607
+    - HGNC:3591
+    - AUTO:BCR48
+    - HGNC:24490
+    - HGNC:14193
+    - HGNC:20364
+  gene_variances:
+    - CDC42_G15A
+    - RHOA_G17A
+    - RAC1_G15A
+    - RHOG_G15A
+  gene_gene_interactions:
+    - gene1: RHOA_G17A
+      gene2: ARHGEF1
+    - gene1: RHOA
+      gene2: ARHGEF2
+    - gene1: RHOA
+      gene2: ARHGEF5
+    - gene1: RHOA
+      gene2: ARHGEF17
+    - gene1: RHOA_G17A
+      gene2: NGEF29
+    - gene1: RHOA
+      gene2: ECT2
+    - gene1: RHOA
+      gene2: AKAP13
+    - gene1: RAC1
+      gene2: SWAP70
+    - gene1: RAC1_G15A
+      gene2: DOCK1
+    - gene1: RAC1
+      gene2: DOCK4
+    - gene1: RAC1_G15A
+      gene2: DOCK5
+    - gene1: RAC1
+      gene2: DOCK6
+    - gene1: VAV2
+      gene2: RHOA
+    - gene1: VAV2
+      gene2: RAC1
+    - gene1: VAV2
+      gene2: CDC42
+    - gene1: TRIO
+      gene2: RHOA
+    - gene1: TRIO43
+      gene2: RAC1
+    - gene1: TRIO43
+      gene2: RHOG
+    - gene1: ARHGEF11
+      gene2: RHOA
+    - gene1: ARHGEF11
+      gene2: RAC1
+    - gene1: ARHGEF11
+      gene2: CDC42
+    - gene1: DOCK7
+      gene2: RAC1
+    - gene1: DOCK7
+      gene2: CDC42
+    - gene1: ARHGEF7
+      gene2: RAC1
+    - gene1: ARHGEF7
+      gene2: CDC42
+    - gene1: FARP1
+      gene2: RHOA
+    - gene1: FARP1
+      gene2: RAC1
+    - gene1: FARP1
+      gene2: CDC42
+    - gene1: BCR
+      gene2: RHOA
+    - gene1: BCR
+      gene2: RAC1
+    - gene1: CDC42
+      gene2: ARHGEF26
+    - gene1: RHOA
+      gene2: ARHGEF12
+    - gene1: CDC42
+      gene2: ARHGEF12
+    - gene1: PLEKHG3
+      gene2: RAC1
+    - gene1: PLEKHG3
+      gene2: CDC42
+    - gene1: PLEKHG3
+      gene2: RHOA
+named_entities:
+  - id: HGNC:681
+    label: ARHGEF1
+  - id: HGNC:682
+    label: ARHGEF2
+  - id: HGNC:13209
+    label: ARHGEF5
+  - id: HGNC:21726
+    label: ARHGEF17
+  - id: AUTO:NGEF29
+    label: NGEF29
+  - id: HGNC:3155
+    label: ECT2
+  - id: HGNC:371
+    label: AKAP13
+  - id: HGNC:17070
+    label: SWAP70
+  - id: HGNC:2987
+    label: DOCK1
+  - id: HGNC:19192
+    label: DOCK4
+  - id: HGNC:23476
+    label: DOCK5
+  - id: HGNC:19189
+    label: DOCK6
+  - id: HGNC:1736
+    label: CDC42
+  - id: AUTO:DNMBP38
+    label: DNMBP38
+  - id: HGNC:20884
+    label: PLEKHG1
+  - id: HGNC:19191
+    label: DOCK8
+  - id: HGNC:23479
+    label: DOCK10
+  - id: HGNC:12658
+    label: VAV2
+  - id: HGNC:667
+    label: RHOA
+  - id: HGNC:9801
+    label: RAC1
+  - id: AUTO:TRIO43
+    label: TRIO43
+  - id: HGNC:672
+    label: RHOG
+  - id: HGNC:14580
+    label: ARHGEF11
+  - id: HGNC:19190
+    label: DOCK7
+  - id: HGNC:15607
+    label: ARHGEF7
+  - id: HGNC:3591
+    label: FARP1
+  - id: AUTO:BCR48
+    label: BCR48
+  - id: HGNC:24490
+    label: ARHGEF26
+  - id: HGNC:14193
+    label: ARHGEF12
+  - id: HGNC:20364
+    label: PLEKHG3
