@@ -72,7 +72,7 @@ class Settings:
     skip_annotators: Optional[List[str]] = None
 
 
-settings = Settings()
+settings = Settings() #skip_annotators=['bioportal:pr','bioportal:hgnc-nr']
 
 
 def _as_text_writer(f):
@@ -483,7 +483,7 @@ def pubmed_extract(model, pmid, template, output, output_format, get_pmc, show_p
     for text in textlist:
         logging.debug(f"Input text: {text}")
         results = ke.extract_from_text(text=text, show_prompt=show_prompt)
-        write_extraction(results, output, output_format)
+        write_extraction(results, output, output_format,ke)
 
 
 @main.command()

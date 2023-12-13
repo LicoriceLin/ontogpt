@@ -246,6 +246,7 @@ class SPIRESEngine(KnowledgeEngine):
                 prompt += f"{k}: {self._serialize_value(v, slot)}\n"
         logging.debug(f"PROMPT: {prompt}")
         payload = self.client.complete(prompt, show_prompt)
+        # print(prompt+'\n---\n'+payload+'\n\n###\n\n',file=open('tmp_chat.log','a'))
         prediction = self.parse_completion_payload(payload, object=object)
         return ExtractionResult(
             input_text=prompt,
@@ -298,6 +299,7 @@ class SPIRESEngine(KnowledgeEngine):
         prompt += "; ".join(terms)
         prompt += "===\n\n"
         payload = self.client.complete(prompt, show_prompt)
+        # print(prompt+'\n---\n'+payload+'\n\n###\n\n',file=open('tmp_chat.log','a'))
         # outer parse
         best_results: List[str] = []
         for sep in ["\n", "; "]:
@@ -380,9 +382,41 @@ class SPIRESEngine(KnowledgeEngine):
         """
         prompt = self.get_completion_prompt(cls=cls, text=text, object=object)
         self.last_prompt = prompt
+        self.client.sys_info=(
+            "you are a proficient researcher in biomedical "
+            "and are very sensitive to all kinds of ontology entities and their relationship.\n"
+            "you'll receive a series task of information extraction, i.e "
+            "from the given text, extract the required entities in the required Format.\n"
+            "If no object for a entity is detected, leave that line blanck as "
+            "${entity name}: \n"
+            "The format of task is rigid as below : \n"
+            # "```\n"
+            "Format:\n"
+            "${entity name 1}: <extraction format 1>\n"
+            "${entity name 2}: <extraction format 2>\n"
+            "... ...\n\n"
+            "Text:\n"
+            "${text to be analysed for entity extraction; may be multiple lines}"
+            "... ...\n\n"
+            "---\n\n"
+            # "```\n"
+            "It's VITAL to keep your output exactly the given format."
+            "Once extraction is finished, end it with a single line of '###'.\n\n"
+            "Then, you're required to add some brief annotations."
+            "when your extraction is ostensive in given text, just put ONLY 'NO ANNOT' as annotations.\n"
+            "Only under following occasions can you add annotations in a CONCISE manner:\n"
+            "   1) the text is confusing, ambiguous and needs guessing. "
+            "In such cases, quote the confusing parts and put your guessing below;\n"
+            "   2) you inferred something requiring your biomedical domain knowledge outside the given text."
+            "In such cases, quote the relevant extraction and put the domain knowledge you used.\n"
+            "Annotations should be LESS THAN 100 words IN TOTAL!" 
+        )
         payload_note = self.client.complete(prompt=prompt, show_prompt=show_prompt)
+        self.client.sys_info='' # tmp reset sys info
+        # import pdb;pdb.set_trace()
         payload,note=[i.strip() for i in payload_note.split('###')]
-        if note!='---':
+        # print(prompt+'\n---\n'+payload_note+'\n\n###\n\n',file=open('tmp_chat.log','a'))
+        if note!='NO ANNOT':
             logging.info(f"PARSING NOTE: {note}")
         return payload
 
@@ -392,33 +426,6 @@ class SPIRESEngine(KnowledgeEngine):
         """Get the prompt for the given template."""
         if cls is None:
             cls = self.template_class
-        self.client.sys_info=(
-            "you are a proficient researcher in biomedical "
-            "and are very sensitive to all kinds of ontology entities and their relationship.\n"
-            "you'll receive a series task of information extraction, i.e "
-            "from the given text, extract the required entities in the required Format.\n"
-            "The format of task is rigid: \n"
-            "```\n"
-            "Format:\n"
-            "${entity name 1}: <extraction format 1>\n"
-            "${entity name 2}: <extraction format 2>\n"
-            "... ...\n\n"
-            "Text:\n"
-            "${text to be analysed for entity extraction; may be multiple lines}"
-            "... ...\n\n"
-            "```\n"
-            "It's VITAL to keep your output PRECISE to the given format."
-            "No matter what happens, keep it exactly PRECISE.\n"
-            "After the extraction, You should ALWAYS add a block of annotation to explain your thinking."
-            "The block should begin with a line of only '###' (no more blank!). "
-            "Be very, very prudent to add these annotation, and be as CONCISE as possible."
-            "You should almost always put ONLY 'NO ANNOTATION' as place-holder.\n"
-            "Only for following occasions, your are required to annotated it in ONLY A FEW words:\n"
-            "   1) the text is confusing and needs guessing. "
-            "In such cases, quoting the 'confusing' part and explain your guessing;\n"
-            "   2) you inferred something by combining your own knowledge and the given text."
-            "In such cases, BRIEFLY explain your deduction.\n" 
-        )
         if not text or ("\n" in text or len(text) > 60):
             prompt = (
                 # "Task:\n"
