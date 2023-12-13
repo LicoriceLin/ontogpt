@@ -30,41 +30,10 @@ classes:
           prompt: semicolon-separated list of underscore separated gene and muation. e.g.KRAS_K12D
         multivalued: true
         range: GeneVairance
-      organisms:
-        description: semicolon-separated list of organism taxons
-        multivalued: true
-        range: Organism
-      gene_organisms:
-        annotations:
-          prompt: semicolon-separated list of asterisk separated gene to organism relationships
-        multivalued: true
-        range: GeneOrganismRelationship
-      activities:
-        description: semicolon-separated list of molecular activities
-        multivalued: true
-        range: MolecularActivity
-      gene_functions:
-        description: semicolon-separated list of gene to molecular activity relationships
-        multivalued: true
-        range: GeneMolecularActivityRelationship
-      cellular_processes:
-        description: semicolon-separated list of cellular processes
-        multivalued: true
-        range: CellularProcess
-      pathways:
-        description: semicolon-separated list of pathways
-        multivalued: true
-        range: Pathway
       gene_gene_interactions:
         description: semicolon-separated list of gene to gene interactions
         multivalued: true
         range: GeneGeneInteraction
-      gene_localizations:
-        description: >-
-          semicolon-separated list of genes plus their location in the cell;
-          for example, "gene1 / cytoplasm; gene2 / mitochondrion"
-        multivalued: true
-        range: GeneSubcellularLocalizationRelationship
 
   Gene:
     is_a: NamedEntity
