@@ -72,7 +72,7 @@ class Settings:
     skip_annotators: Optional[List[str]] = None
 
 
-settings = Settings()
+settings = Settings() #skip_annotators=['bioportal:pr','bioportal:hgnc-nr']
 
 
 def _as_text_writer(f):
@@ -317,7 +317,7 @@ def extract(
         if settings.cache_db:
             ke.client.cache_db_path = settings.cache_db
         if settings.skip_annotators:
-            ke.client.skip_annotators = settings.skip_annotators
+            ke.skip_annotators = settings.skip_annotators
 
     elif model_source == "GPT4All":
         ke = GPT4AllEngine(template=template, model=model_name, **kwargs)
@@ -483,7 +483,7 @@ def pubmed_extract(model, pmid, template, output, output_format, get_pmc, show_p
     for text in textlist:
         logging.debug(f"Input text: {text}")
         results = ke.extract_from_text(text=text, show_prompt=show_prompt)
-        write_extraction(results, output, output_format)
+        write_extraction(results, output, output_format,ke)
 
 
 @main.command()
@@ -1526,7 +1526,7 @@ def fill(model, template, object: str, examples, output, output_format, show_pro
 def openai_models(**kwargs):
     """List OpenAI models for prompt completion."""
     ai = OpenAIClient()
-    for model in openai.Model.list():
+    for model in ai.client.models.list():
         print(model)
 
 
